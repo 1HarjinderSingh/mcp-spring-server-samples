@@ -5,7 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Util {
-    Map<String,String> studentDetails = new HashMap<>();
+
+    // Map to store student ID and its details
+    // This is a mock implementation. In a real-world scenario, this data might be fetched from a database or an external service.
+    Map<String, String> studentDetails = new HashMap<>();
+
+    public Util() {
+        // Constructor
+    }
+
     public  String getStudentDetails(String studentId) {
         if (studentDetails.containsKey(studentId)) {
             return studentDetails.get(studentId);
@@ -63,4 +71,5 @@ public class Util {
 
         return String.join(",", studentDetails.keySet());
     }
+
 }
