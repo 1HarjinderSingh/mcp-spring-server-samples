@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
+import org.springframework.stereotype.Component;
 
-public class CustomWorkflowServer {
+@Component
+public class CustomWorkflowTools {
 
     private CustomWorkflowManager workflowManager;
 
-    public CustomWorkflowServer(CustomWorkflowManager workflowManager) {
+    public CustomWorkflowTools(CustomWorkflowManager workflowManager) {
         this.workflowManager = workflowManager;
     }
 
@@ -20,6 +22,8 @@ public class CustomWorkflowServer {
 						""")
     public List<CustomWorkflow> getWorkflowList() {
 
+		System.out.println("Fetching available workflows...");
+		System.out.println("Available workflows: " + workflowManager.getAvailableWorkflows());
 		return workflowManager.getAvailableWorkflows();
 	}
 

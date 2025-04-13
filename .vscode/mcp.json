@@ -1,0 +1,16 @@
+{
+    "servers": {
+        "LocalWorkflowManagerServer": {
+            "type": "stdio",
+            "command": "Java",
+            "args": [
+                "-jar",
+                "D:\\UserData\\Learning\\AI\\mcp-spring-server-samples\\build\\libs\\service-0.0.1-SNAPSHOT.jar"
+            ]
+        },
+        "RemoteWorkflowManagerServer": {
+            "type": "sse",
+            "url": "http://localhost:8081/sse",
+        }
+    }
+}

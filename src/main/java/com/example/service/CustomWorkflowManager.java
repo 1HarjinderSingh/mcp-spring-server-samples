@@ -4,26 +4,60 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 /*
     * CustomWorkflowManager is a class that manages the workflows in the system.
  */
+@Component
 public class CustomWorkflowManager {
 
     private Map<String, CustomWorkflow> workflows;
 
     public CustomWorkflowManager() {
         workflows = new HashMap<>();
+        loadWorkflows();
     }
 
     public void loadWorkflows() {
         // Implement the logic to create a new workflow
+        Map<String, CustomWorkflowStep> workflowSteps = new HashMap<>();
+
+        workflowSteps.put("Upgrade Spring Boot Version", 
+                                new CustomWorkflowStep("Upgrade Spring Boot Version", 
+                                                    "Description of Step 1", 
+                                                    "", 
+                                                    "", 
+                                                    true
+                                                    )
+                                );
+
+        workflowSteps.put("Upgrade Gradle version", 
+                                new CustomWorkflowStep("Upgrade Gradle version", 
+                                                        "Description of Step 2", 
+                                                        "", 
+                                                        "", 
+                                                        true
+                                                        )
+                                );
+
+        workflows.put("Upgrade Framework", 
+                        new CustomWorkflow("Upgrade Framework", 
+                                            "Upgrade framework version for my application", 
+                                            workflowSteps, 
+                                            true
+                            )
+                        );
+
     }
 
     public List<CustomWorkflow> getAvailableWorkflows() {
  
-        return workflows.values().stream()
-                .filter(CustomWorkflow::isActive)
-                .toList();
+        List<CustomWorkflow> workflowList =  workflows.values().stream()
+                                                        .filter(CustomWorkflow::isActive)
+                                                        .toList();
+        System.out.println("Available workflows: " + workflowList);
+        return workflowList;
     }
     
     public List<CustomWorkflowStep> getWorkflowSteps(String workflowName) {

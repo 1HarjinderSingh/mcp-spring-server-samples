@@ -1,5 +1,20 @@
 spring:
   application:
-    name: service
+    name: WorkflowServer
+  main:
+    banner-mode: off
+  ai:
+    mcp:
+      server:
+        name: WorkflowServer
+        version: 0.0.1
+        stdio: false
+        type: SYNC
+        sse-message-endpoint: /mcp/message
 server:
+  # Port 8081 is used to avoid conflicts with the default port 8080
   port: 8081
+
+logging:
+  level:
+    root: ERROR

@@ -3,6 +3,7 @@ package com.example.service;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Util {
 
@@ -18,9 +19,10 @@ public class Util {
         if (studentDetails.containsKey(studentId)) {
             return studentDetails.get(studentId);
         }
+        Scanner scanner = null;
         try {
             File file = new File("StudentRecords.csv");
-            java.util.Scanner scanner = new java.util.Scanner(file);
+            scanner = new Scanner(file);
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
@@ -38,6 +40,11 @@ public class Util {
 
         } catch (java.io.FileNotFoundException e) {
             return "Error: Student records file not found";
+        } finally {
+            // Close the scanner if it was opened
+            if (scanner != null) {
+                scanner.close();
+            }
         }
     }
 

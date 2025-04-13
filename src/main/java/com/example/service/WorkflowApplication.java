@@ -11,15 +11,17 @@ import org.springframework.stereotype.Component;
 
 
 @SpringBootApplication
-public class ServiceApplication {
-	public static final String FOLDER="/home/davidmathias/work/mcp/mcp-client-demo-01/user-context";
+public class WorkflowApplication {
+
+	public static final String FOLDER="user-context";
+
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceApplication.class, args);
+		SpringApplication.run(WorkflowApplication.class, args);
 	}
 
 	@Bean
-	ToolCallbackProvider toolCallbackProvider(Tools tools){
-		return MethodToolCallbackProvider.builder().toolObjects(tools).build();
+	ToolCallbackProvider toolCallbackProvider(Tools tools, CustomWorkflowTools customWorkflowTools) {
+		return MethodToolCallbackProvider.builder().toolObjects(tools, customWorkflowTools).build();
 	}
 
 
@@ -27,7 +29,9 @@ public class ServiceApplication {
 
 @Component
 class Tools {
+	
 	private Util util = new Util();
+
     @Tool(description = "Gives details of a student, like name, age, GPA. \n calling listStudentIds() will give you a list of student IDs")
     String studentDetails(@ToolParam(description = "Student ID") String studentId) {
 		if (studentId == null || studentId.isEmpty()) {
