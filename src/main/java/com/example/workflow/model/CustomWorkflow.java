@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.workflow.model;
 
 import java.util.Map;
 

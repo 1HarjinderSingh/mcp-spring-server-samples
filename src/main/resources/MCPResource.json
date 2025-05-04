@@ -1,0 +1,22 @@
+{
+    "name": "MCPResource",
+    "description": "MCPResource is a resource that handles the management of MCP (Managed Cloud Platform) resources.",
+    "properties": {
+        "resourceId": {
+        "type": "string",
+        "description": "The unique identifier for the MCP resource."
+        },
+        "resourceName": {
+        "type": "string",
+        "description": "The name of the MCP resource."
+        },
+        "resourceType": {
+        "type": "string",
+        "description": "The type of the MCP resource."
+        },
+        "status": {
+        "type": "string",
+        "description": "The current status of the MCP resource."
+        }
+    }
+}

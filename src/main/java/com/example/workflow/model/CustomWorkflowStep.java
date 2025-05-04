@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.workflow.model;
 
 public record CustomWorkflowStep(
     String stepId,

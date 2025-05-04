@@ -1,15 +1,18 @@
-package com.example.service;
+package com.example.workflow.service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.example.workflow.model.CustomWorkflow;
+import com.example.workflow.model.CustomWorkflowStep;
 
 /*
     * CustomWorkflowManager is a class that manages the workflows in the system.
  */
-@Component
+@Service
 public class CustomWorkflowManager {
 
     private Map<String, CustomWorkflow> workflows;

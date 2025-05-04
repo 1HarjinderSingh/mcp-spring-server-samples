@@ -11,6 +11,14 @@
         "RemoteWorkflowManagerServer": {
             "type": "sse",
             "url": "http://localhost:8081/sse",
+        },
+        "filesystem": {
+            "command": "npx",
+            "args": [
+            "-y",
+            "@modelcontextprotocol/server-filesystem",
+            "D:\\UserData\\Learning\\AI\\mcp-spring-server-samples"
+            ]
         }
     }
 }

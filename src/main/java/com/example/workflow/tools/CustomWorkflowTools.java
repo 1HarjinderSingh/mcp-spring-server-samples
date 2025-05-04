@@ -1,10 +1,14 @@
-package com.example.service;
+package com.example.workflow.tools;
 
 import java.util.List;
 
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;
+
+import com.example.workflow.model.CustomWorkflow;
+import com.example.workflow.model.CustomWorkflowStep;
+import com.example.workflow.service.CustomWorkflowManager;
 
 @Component
 public class CustomWorkflowTools {
@@ -17,7 +21,7 @@ public class CustomWorkflowTools {
 
     @Tool(description = """
 						Gives the list of avilable workflows and their description. 
-						Workflow description will define the goal of the workflow, like "Upgarde Orchestra Framework version". 
+						Workflow description will define the goal of the workflow, like "MyCustom Framework Adoption". 
 						Calling getWorkflowSteps(workflowName) will give you a list of steps in the workflow.
 						""")
     public List<CustomWorkflow> getWorkflowList() {

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "workflowmcpserver": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "D:\\UserData\\Learning\\AI\\mcp-spring-server-samples\\build\\libs\\service-0.0.1-SNAPSHOT.jar"
+      ],
+      "env": {
+        "WORKFLOW_AUTHOR": "Harji"
+      }
+    }
+  }
+}
